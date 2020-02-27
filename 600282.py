@@ -24,7 +24,7 @@ pro = ts.pro_api()
 
 
 # 导入000002.SZ前复权日线行情数据，保留收盘价列
-df = ts.pro_bar(ts_code='600282.SH', adj='qfq', start_date='20020101', end_date='20200226')
+df = ts.pro_bar(ts_code='600282.SH', adj='qfq', start_date='20020101', end_date='20200227')
 df.sort_values('trade_date', inplace=True)
 df['trade_date'] = pd.to_datetime(df['trade_date'])
 df.set_index('trade_date', inplace=True)
@@ -83,6 +83,6 @@ print("Prediction: {}".format(new_prediction))
 print(knn.score(X_test, y_test))
 
 print("the format of X is ", repr(X_test))
-x_predict = [[1, 0]]
+x_predict = [[1, 1]]
 # x_predict = np.array([0, 0])
-print("600282.SH stock' price for 20200227 is", knn.predict(x_predict))
+print("600282.SH stock' price for 20200228 is", knn.predict(x_predict))
